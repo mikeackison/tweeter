@@ -15,13 +15,12 @@ button {
 
 textarea {
   resize: none;
+  outline: none;
+  color: #545149;
   margin: 0px 0px 20px;
-  width: 1045px;
+  /* width: 800px; */
   height: 44px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-bottom-width: 5px;
+  border-width: 0 0 5px 0 ;
   margin-bottom: 20px;
   background-color: #f4f1ec;
   font-weight: 600;
@@ -32,4 +31,8 @@ textarea {
   font-family: Bungee, cursive;
   justify-content: space-between;
 
+}
+
+h2 {
+  margin-top: 20px;
 }
