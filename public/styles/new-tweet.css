@@ -19,11 +19,21 @@ textarea {
   color: #545149;
   margin: 0px 0px 20px;
   /* width: 800px; */
-  height: 44px;
+  height: 64px;
   border-width: 0 0 5px 0 ;
   margin-bottom: 20px;
   background-color: #f4f1ec;
+  /* font-weight: 600; */
+  font-size: 24px;
+}
+
+
+
+textarea::placeholder {
+  font-size: 30px;
   font-weight: 600;
+  color: #545149;
+
 }
 
 .bottom_row {
@@ -35,4 +45,12 @@ textarea {
 
 h2 {
   margin-top: 20px;
+}
+
+.black {
+  color: #545149;
+}
+
+.red {
+  color: #ff0000
 }
