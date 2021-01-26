@@ -1,0 +1,35 @@
+
+
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+button {
+  color: #FFFFFF;
+  background-color: #4056A1;
+}
+
+textarea {
+  resize: none;
+  margin: 0px 0px 20px;
+  width: 1045px;
+  height: 44px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 5px;
+  margin-bottom: 20px;
+  background-color: #f4f1ec;
+  font-weight: 600;
+}
+
+.bottom_row {
+  display: flex;
+  font-family: Bungee, cursive;
+  justify-content: space-between;
+
+}
