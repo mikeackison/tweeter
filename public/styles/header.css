@@ -1,8 +1,9 @@
 header {
-  background: url('../images/binding-light.png') #136d77;
   display: flex;
+  background: url('../images/binding-light.png'), #136d77;
   flex-direction: column;
   align-items: center;
+  color:  #f4f1ec;
   height: 400px;
   width: 100%;
 }
