@@ -1,5 +1,3 @@
-console.log("This is a char counter test.")
-
 
 $(document).ready(function() {
   
