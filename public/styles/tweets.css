@@ -1,0 +1,88 @@
+.tweets {
+  border: #545149 4px solid;  
+  border-radius: 5px;
+  display: block;
+  margin: 1em 0 1em 0;
+}
+
+.tweets .username {
+  display: none;
+}
+
+.tweets:hover .username{
+  display: block;
+}
+
+.tweets:hover {
+  box-shadow: 10px 10px 5px grey;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+.name {
+  font-weight: normal;
+}
+
+.username h3 {
+  font-weight: normal;
+  color: rgb(137, 185, 230);
+}
+
+.header .username {
+  margin: 1em; 
+}
+
+.header .imagename {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em;
+
+}
+
+.header div .avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.header div .name {
+  margin-left: 1em;
+}
+
+.tweet {
+  margin: 1em 2em 1em 2em ;
+}
+
+.line {
+  border: #545149 1px solid;  
+  /* display: block; */
+  width: 95%
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  font-size: 16px;
+  margin: 1em;
+}
+
+.icons {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  color:#4056A1;
+  margin: 1em;
+}
+
+.icons .fas{
+font-size: 0.75em
+}
