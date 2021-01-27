@@ -32,7 +32,7 @@ textarea::placeholder {
 
 }
 
-.bottom_row {
+.bottom-row {
   display: flex;
   font-family: Bungee, cursive;
   justify-content: space-between;
