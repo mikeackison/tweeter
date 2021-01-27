@@ -90,7 +90,7 @@ $(document).ready(function() {
 
       // takes return value and appends it to the tweets container
       // // $tweet.appendTo($(`#tweets-container`));
-      $(`#tweets-container`).append($tweet);
+      $(`#tweets-container`).prepend($tweet);
     }
   };
 
