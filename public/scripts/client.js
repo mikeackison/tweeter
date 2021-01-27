@@ -11,38 +11,12 @@
 /*
 
 */
- 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1611598418381
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1611684818381
-  }
-];
 
-// linter is complainng about document and $ not defined?
 
 $(document).ready(function() {
 
   // console.log('this is a client.js TEST');
-  
+
   const createTweetElement = function(tweet) {
 
 
@@ -83,9 +57,9 @@ $(document).ready(function() {
   };
   const renderTweets = function(tweets) {
     // loops through tweets
-    
+
     for (let tweet of tweets) {
-    // calls createTweetElement for each tweet
+      // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
 
       // takes return value and appends it to the tweets container
@@ -94,37 +68,53 @@ $(document).ready(function() {
     }
   };
 
-  renderTweets(data);
+  // renderTweets(data);
 
-// create event handler
-// prevent from submitting the form
 
-$(function() {
-  $("#submit-tweet").on('submit', function () {
-    // console.log('Button clicked, performing ajax call...');
-    event.preventDefault()
 
-    const tweetText = $('#tweet-text').val()
 
-    // console.log(tweetText)
+  $(function() {
+    $("#submit-tweet").on('submit', function() {
+      // create event handler
 
-    const form = $(this).serialize()
-    // console.log(form)
+      // prevent from submitting the form
+      event.preventDefault();
 
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: form
-    
-    }).then(console.log("SUCCESS"))
-    
+      // extract the content of tweet text with val()
+      const tweetText = $('#tweet-text').val();
+
+      console.log("TWEET TEXT", tweetText);
+      // console.log(this)
+
+      const form = $(this).serialize();
+      console.log(form);
+
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: form
+
+      }).then(console.log("SUCCESSFUL POST"));
+
+    });
   });
-});
 
-
-
-
-});
-
-
+  const loadTweets = function () {
+    $.ajax({
+      url: '/tweets', 
+      method: 'GET' 
+    }).then( function(data) {
+      console.log("SUCCESSFUL GET", data)
+      renderTweets(data)
+    }).fail(() =>
+    console.log("There was an error gett ing that info")
+    )
   
+  }
+
+
+loadTweets()
+
+});
+
+
