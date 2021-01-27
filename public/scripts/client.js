@@ -95,6 +95,36 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
+
+// create event handler
+// prevent from submitting the form
+
+$(function() {
+  $("#submit-tweet").on('submit', function () {
+    // console.log('Button clicked, performing ajax call...');
+    event.preventDefault()
+
+    const tweetText = $('#tweet-text').val()
+
+    // console.log(tweetText)
+
+    const form = $(this).serialize()
+    // console.log(form)
+
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: form
+    
+    }).then(console.log("SUCCESS"))
+    
+  });
 });
 
 
+
+
+});
+
+
+  
