@@ -13,7 +13,7 @@ $(document).ready(function() {
     // use length to find out how long the string is
     const count = $(this).val().length
 
-    console.log($(this).val().length)
+    // console.log($(this).val().length)
     
 
     // compare the lenght against the 140 char limint
@@ -30,10 +30,10 @@ $(document).ready(function() {
     // use addClass removeclass to change the color of the counter
     // use css to style the class
      if (count <= 140) {
-      console.log("true")
+      // console.log("true")
       counter.addClass("black").removeClass("red") 
     } else {
-      console.log("false")
+      // console.log("false")
       counter.removeClass("black").addClass("red")
     }
 
