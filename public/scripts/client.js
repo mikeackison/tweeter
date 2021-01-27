@@ -9,87 +9,92 @@
 
 // tweet data object will have all the data
 /*
- {
+
+*/
+ 
+const data = [
+  {
     "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
+      "handle": "@SirIsaac"
+    },
     "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
- }
-(taken from initial-tweets.json)
-*/
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1611598418381
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1611684818381
+  }
+];
 
-
+// linter is complainng about document and $ not defined?
 
 $(document).ready(function() {
 
-  console.log('this is a client.js TEST');
+  // console.log('this is a client.js TEST');
   
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  }
+  const createTweetElement = function(tweet) {
 
 
-
-
-  const createTweetElement = function(tweetData) {
-
+    // appropriate formatting for this?
     const $tweet = $(`
-    <article class="tweets">
+          <article class="tweets">
 
-    <header class="header">
-      <div class="imagename">
-      <img class="avatar" src="https://i.imgur.com/73hZDYK.png"> <h3 class="name">Name</h3>
-      </div>
+          <header class="header">
+            <div class="imagename">
+            <img class="avatar" src=${tweet.user.avatars}> <h3 class="name">${tweet.user.name}</h3>
+            </div>
 
-      <div class="username">
-      <h3>@ID</h3>
-      </div>
-    </header>
+            <div class="username">
+            <h3>${tweet.user.handle}</h3>
+            </div>
+          </header>
 
-    <p class="tweet">
-      TWEET TEXT Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum ullamcorper mi eu facilisis. Nulla viverra sapien orc.
-    </p>
-    
-    <hr class="line">
+          <p class="tweet">
+            ${tweet.content.text}
+          </p>
+          
+          <hr class="line">
 
-  <footer class="footer">
-   
-      <p class="date">10 days ago</p>
-      <!-- <img class="icons" src="/images/profile-hex.png"> -->
-      <div class="icons">
-      <i class="fas fa-flag"></i>
-      <i class="fas fa-retweet"></i>
-      <i class="fas fa-heart"></i>
-      </div>
-  </footer>
+        <footer class="footer">
+        
+            <p class="date">${tweet.created_at}</p>
+            <!-- <img class="icons" src="/images/profile-hex.png"> -->
+            <div class="icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+            </div>
+        </footer>
 
-</article>`);
+      </article>`);
 
     return $tweet;
   };
+  const renderTweets = function(tweets) {
+    // loops through tweets
+    
+    for (let tweet of tweets) {
+    // calls createTweetElement for each tweet
+      const $tweet = createTweetElement(tweet);
 
-  const $tweet = createTweetElement();
+      // takes return value and appends it to the tweets container
+      // // $tweet.appendTo($(`#tweets-container`));
+      $(`#tweets-container`).append($tweet);
+    }
+  };
 
-
-
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $(`#tweets-container`).append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  // $tweet.appendTo($(`#tweets-container`));
-
-  console.log($(`#tweets-container`)); // to see what it looks like
-
+  renderTweets(data);
 });
+
+
