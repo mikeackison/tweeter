@@ -7,7 +7,6 @@ $(document).ready(function() {
 
   // put the jquery object in a variable
   const tweetText = $('#tweet-text')
-  console.log(tweetText)
 
   // on input will fire when the input changes, not limited to keystrokes
   tweetText.on('input', function() {
@@ -16,8 +15,6 @@ $(document).ready(function() {
     // use length to find out how long the string is
     const count = $(this).val().length
 
-    // console.log(typeof $(this).val())
-    // console.log($(this).val())
     console.log($(this).val().length)
     
 
@@ -29,8 +26,6 @@ $(document).ready(function() {
 
     // return html content with text() with the argument being the remaining number
     counter.text(remaining)
-
-    // console.log(typeof count )
 
     // put in a function? returning a boolean; if the boolean is true css stays tthe same, if false, turns red
     
