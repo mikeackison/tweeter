@@ -62,14 +62,20 @@ $(document).ready(function() {
   };
   const renderTweets = function(tweets) {
     // loops through tweets
+    $(`#tweets-container`).empty();
 
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
+      // console.log("For Loop tweet" , tweet)
+      // console.log("This is $tweet", $tweet)
 
       // takes return value and appends it to the tweets container
       // // $tweet.appendTo($(`#tweets-container`));
+      
+     
       $(`#tweets-container`).prepend($tweet);
+     
     }
   };
 
@@ -135,15 +141,14 @@ $(document).ready(function() {
       method: 'GET'
     }).then(function(data) {
       console.log("SUCCESSFUL GET", data);
+
       renderTweets(data);
     }).fail(() =>
       console.log("There was an error getting that info")
     );
 
   };
-
   loadTweets();
-
 });
 
 
