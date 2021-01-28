@@ -50,11 +50,23 @@
     <main class="container">
 
       <section class="new-tweet">
+
+        <div class="text-alert empty-tweet">
+          <div class= "exclaim"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="exclaim">You must have more to talk about than that!</div>  
+        </div>
+
+        <div class="text-alert long-tweet">
+          <div class= "exclaim"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="exclaim">Your tweet is too long, can you think of less things to say?</div>
+        </div>
+
         <h2>Compose Tweet</h2>
         <form id="submit-tweet" action="/tweets/" method="POST" >
           <!-- <label for="tweet-text">What are you humming about?</label> -->
           <textarea class="textarea" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="bottom-row">
+
             
             <button type="submit" id="submit">Tweet</button>
             <!-- cladd properity can take multiple attributes -->
