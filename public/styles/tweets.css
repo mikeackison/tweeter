@@ -3,6 +3,7 @@
   border-radius: 5px;
   display: block;
   margin: 1em 0 1em 0;
+  word-wrap: break-word
 }
 
 .tweets .username {
