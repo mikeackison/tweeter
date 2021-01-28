@@ -59,9 +59,14 @@ padding: 0.5em;
 
 }
 
- div .exclaim {
+ .text-alert div {
   display: inline-flex;
+  
   color: red;
   font-size: 30px;
 
+}
+
+.new-tweet {
+  display: none;
 }
