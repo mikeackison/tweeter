@@ -42,7 +42,7 @@ $(document).ready(function() {
 
         <footer class="footer">
         
-            <p class="date">${tweet.created_at}</p>
+            <p class="date">${moment(tweet.created_at).fromNow()}</p>
             <!-- <img class="icons" src="/images/profile-hex.png"> -->
             <div class="icons">
             <i class="fas fa-flag"></i>
@@ -80,40 +80,62 @@ $(document).ready(function() {
       // prevent from submitting the form
       event.preventDefault();
 
-      // extract the content of tweet text with val()
       const tweetText = $('#tweet-text').val();
 
-      console.log("TWEET TEXT", tweetText);
-      // console.log(this)
+      // how would you implement with null?
+      if (tweetText === '') {
+        console.log("this is empty");
+        alert("That is an empty string");
 
-      const form = $(this).serialize();
-      console.log(form);
+        // return
+      } else if (tweetText.length > 140) {
+        console.log("This is long");
+        alert("That is too long");
+        // The form should not be cleared
+        // The form should not submit
 
-      $.ajax({
-        url: "/tweets",
-        method: "POST",
-        data: form
+        // return
+      } else {
 
-      }).then(console.log("SUCCESSFUL POST"));
+        // console.log("TWEET TEXT", tweetText);
+        // console.log(this)
 
+        const form = $(this).serialize();
+        console.log(form);
+
+        $.ajax({
+          url: "/tweets",
+          method: "POST",
+          data: form
+
+        }).then(function(data) {
+          console.log("SUCCESSFUL POST", data);
+          loadTweets(data);
+          // after loading tweets, need to reset/clear the tweet-text.
+          $(tweetText).val('');
+
+        }).fail(() =>
+          console.log("There was an error getting that info")
+        );
+
+      }
     });
   });
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax({
-      url: '/tweets', 
-      method: 'GET' 
-    }).then( function(data) {
-      console.log("SUCCESSFUL GET", data)
-      renderTweets(data)
+      url: '/tweets',
+      method: 'GET'
+    }).then(function(data) {
+      console.log("SUCCESSFUL GET", data);
+      renderTweets(data);
     }).fail(() =>
-    console.log("There was an error gett ing that info")
-    )
-  
-  }
+      console.log("There was an error getting that info")
+    );
 
+  };
 
-loadTweets()
+  loadTweets();
 
 });
 
