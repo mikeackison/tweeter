@@ -25,15 +25,11 @@ $(document).ready(function() {
 
   $(function( ) {
     $("#compose").on('click', function() {
-      $(".new-tweet").toggle()
-     
+      $(".new-tweet").toggle();
     })
   })
 
-
-
   const createTweetElement = function(tweet) {
-
 
     // appropriate formatting for this?
     const $tweet = $(`
@@ -45,7 +41,7 @@ $(document).ready(function() {
             </div>
 
             <div class="username">
-            <h3>${tweet.user.handle}</h3>
+             <h3>${tweet.user.handle}</h3>
             </div>
           </header>
 
@@ -59,9 +55,9 @@ $(document).ready(function() {
         
             <p class="date">${moment(tweet.created_at).fromNow()}</p>
             <div class="icons">
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
             </div>
         </footer>
 
@@ -76,13 +72,10 @@ $(document).ready(function() {
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
-      // console.log("For Loop tweet" , tweet)
-      // console.log("This is $tweet", $tweet)
 
       // takes return value and appends it to the tweets container
       // // $tweet.appendTo($(`#tweets-container`));
       
-     
       $(`#tweets-container`).prepend($tweet);
      
     }
@@ -92,37 +85,35 @@ $(document).ready(function() {
   const hideElement = (selector) => {
     setTimeout(() => {
       $(selector).slideUp('slow')
-   }, 4000)
+   }, 2000)
   }
   
 
   $(function() {
-    $("#submit-tweet").on('submit', function() {
+    $("#submit-tweet").on('submit', function(e) {
       // create event handler
 
       // prevent from submitting the form
-      event.preventDefault();
+      e.preventDefault();
 
       const tweetText = $('#tweet-text').val();
 
-      // how would you implement with null?
       if (tweetText === '') {
         $(".empty-tweet").slideDown('slow', hideElement(".empty-tweet")) 
    
       } 
       else if (tweetText.length > 140) {
-        console.log("This is long");
+        
         $(".long-tweet").slideDown('slow', hideElement(".long-tweet"))
      
         // The form should not be cleared
         // The form should not submit
 
       } else {
-        // $(".empty-tweet").slideUp()
-        // $(".long-tweet").slideUp()
+        
 
         const form = $(this).serialize();
-        console.log(form);
+        
 
         $.ajax({
           url: "/tweets",
