@@ -12,6 +12,12 @@
 
 */
 
+const escape = function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 
 $(document).ready(function() {
 
@@ -35,7 +41,7 @@ $(document).ready(function() {
           </header>
 
           <p class="tweet">
-            ${tweet.content.text}
+            ${escape(tweet.content.text)}
           </p>
           
           <hr class="line">
@@ -43,7 +49,6 @@ $(document).ready(function() {
         <footer class="footer">
         
             <p class="date">${moment(tweet.created_at).fromNow()}</p>
-            <!-- <img class="icons" src="/images/profile-hex.png"> -->
             <div class="icons">
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
@@ -70,8 +75,12 @@ $(document).ready(function() {
 
   // renderTweets(data);
 
-
-
+  const hideElement = (selector) => {
+    setTimeout(() => {
+      $(selector).slideUp('slow')
+   }, 4000)
+  }
+  
 
   $(function() {
     $("#submit-tweet").on('submit', function() {
@@ -84,21 +93,19 @@ $(document).ready(function() {
 
       // how would you implement with null?
       if (tweetText === '') {
-        console.log("this is empty");
-        alert("That is an empty string");
-
-        // return
-      } else if (tweetText.length > 140) {
+        $(".empty-tweet").slideDown('slow') 
+   
+      } 
+      else if (tweetText.length > 140) {
         console.log("This is long");
-        alert("That is too long");
+        $(".long-tweet").slideDown('slow')
+     
         // The form should not be cleared
         // The form should not submit
 
-        // return
       } else {
-
-        // console.log("TWEET TEXT", tweetText);
-        // console.log(this)
+        $(".empty-tweet").slideUp()
+        $(".long-tweet").slideUp()
 
         const form = $(this).serialize();
         console.log(form);
@@ -112,7 +119,7 @@ $(document).ready(function() {
           console.log("SUCCESSFUL POST", data);
           loadTweets(data);
           // after loading tweets, need to reset/clear the tweet-text.
-          $(tweetText).val('');
+          $('#tweet-text').val('');
 
         }).fail(() =>
           console.log("There was an error getting that info")
