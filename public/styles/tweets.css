@@ -6,16 +6,29 @@
   word-wrap: break-word
 }
 
-.tweets .username {
+/* .tweets .username {
   display: none;
+} */
+
+.tweets .username {
+  display: block;
+  margin: 0 2em 0 0;
 }
 
-.tweets:hover .username{
+/* .tweets:hover .username{
   display: block;
-}
+  margin: 0 2em 0 0;
+} */
 
 .tweets:hover {
   box-shadow: 10px 10px 5px grey;
+}
+
+.tweets:hover .icons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2em 0 0;
+
 }
 
 .header {
@@ -76,12 +89,13 @@
   margin: 1em;
 }
 
-.icons {
+.tweets .icons {
+  display: none;
   width: 15%;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   color:#4056A1;
-  margin: 1em;
+  /* margin: 1em; */
 }
 
 .icons .fas{
