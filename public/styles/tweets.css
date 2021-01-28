@@ -3,22 +3,14 @@
   border-radius: 5px;
   display: block;
   margin: 1em 0 1em 0;
-  word-wrap: break-word
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
-
-/* .tweets .username {
-  display: none;
-} */
 
 .tweets .username {
   display: block;
   margin: 0 2em 0 0;
 }
-
-/* .tweets:hover .username{
-  display: block;
-  margin: 0 2em 0 0;
-} */
 
 .tweets:hover {
   box-shadow: 10px 10px 5px grey;
@@ -45,6 +37,7 @@
 .username h3 {
   font-weight: normal;
   color: rgb(137, 185, 230);
+  overflow-wrap: anywhere;
 }
 
 .header .username {
@@ -56,7 +49,6 @@
   justify-content: space-between;
   align-items: center;
   margin: 1em;
-
 }
 
 .header div .avatar {
@@ -74,7 +66,6 @@
 
 .line {
   border: #545149 1px solid;  
-  /* display: block; */
   width: 95%
 }
 
@@ -92,12 +83,26 @@
 .tweets .icons {
   display: none;
   width: 15%;
-  /* display: flex;
-  justify-content: space-between; */
   color:#4056A1;
-  /* margin: 1em; */
 }
 
 .icons .fas{
 font-size: 0.75em
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .tweets-container {
+     
+      margin: 0 0 2em;
+      width: 40%; 
+      height: 100%; 
+    
+    }
 }
