@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -27,14 +28,20 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav class="nav"> 
       <span>tweeter</span>
-
-      <button id="compose"> <strong>Write</strong> a new tweet</button>
+        <div class="write-a-new-tweet">
+          <button id="compose"> <strong>Write</strong> a new tweet</button>
+          
+          <i class="fas fa-angle-double-down"></i>
+       
+        </div>
     </nav>
 
    
@@ -48,7 +55,8 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
+      
+     
       <section class="new-tweet">
 
         <div class="text-alert empty-tweet">
@@ -61,6 +69,7 @@
           <div>Your tweet is too long, can you think of less things to say?</div>
         </div>
 
+        
         <h2>Compose Tweet</h2>
         <form id="submit-tweet" action="/tweets/" method="POST" >
           <!-- <label for="tweet-text">What are you humming about?</label> -->
@@ -79,6 +88,7 @@
       <section class="tweets-container" id="tweets-container">
 
       </section>
+  
 
     </main>
   </body>
