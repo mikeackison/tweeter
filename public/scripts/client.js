@@ -23,6 +23,15 @@ $(document).ready(function() {
 
   // console.log('this is a client.js TEST');
 
+  $(function( ) {
+    $("#compose").on('click', function() {
+      $(".new-tweet").toggle()
+     
+    })
+  })
+
+
+
   const createTweetElement = function(tweet) {
 
 
@@ -79,7 +88,6 @@ $(document).ready(function() {
     }
   };
 
-  // renderTweets(data);
 
   const hideElement = (selector) => {
     setTimeout(() => {
@@ -99,19 +107,19 @@ $(document).ready(function() {
 
       // how would you implement with null?
       if (tweetText === '') {
-        $(".empty-tweet").slideDown('slow') 
+        $(".empty-tweet").slideDown('slow', hideElement(".empty-tweet")) 
    
       } 
       else if (tweetText.length > 140) {
         console.log("This is long");
-        $(".long-tweet").slideDown('slow')
+        $(".long-tweet").slideDown('slow', hideElement(".long-tweet"))
      
         // The form should not be cleared
         // The form should not submit
 
       } else {
-        $(".empty-tweet").slideUp()
-        $(".long-tweet").slideUp()
+        // $(".empty-tweet").slideUp()
+        // $(".long-tweet").slideUp()
 
         const form = $(this).serialize();
         console.log(form);
