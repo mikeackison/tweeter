@@ -49,3 +49,19 @@ h2 {
 .red {
   color: #ff0000
 }
+
+.text-alert{
+display: none;
+border: #545149 4px solid;
+background-color: white;
+margin: 0.5em;
+padding: 0.5em;
+
+}
+
+ div .exclaim {
+  display: inline-flex;
+  color: red;
+  font-size: 30px;
+
+}
