@@ -16,18 +16,18 @@ const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 
 $(document).ready(function() {
 
   // console.log('this is a client.js TEST');
 
-  $(function( ) {
+  $(function() {
     $("#compose").on('click', function() {
       $(".new-tweet").toggle();
-    })
-  })
+    });
+  });
 
   const createTweetElement = function(tweet) {
 
@@ -84,9 +84,9 @@ $(document).ready(function() {
 
   const hideElement = (selector) => {
     setTimeout(() => {
-      $(selector).slideUp('slow')
-   }, 2000)
-  }
+      $(selector).slideUp('slow');
+    }, 2000);
+  };
   
 
   $(function() {
@@ -99,12 +99,11 @@ $(document).ready(function() {
       const tweetText = $('#tweet-text').val();
 
       if (tweetText === '') {
-        $(".empty-tweet").slideDown('slow', hideElement(".empty-tweet")) 
+        $(".empty-tweet").slideDown('slow', hideElement(".empty-tweet"));
    
-      } 
-      else if (tweetText.length > 140) {
+      } else if (tweetText.length > 140) {
         
-        $(".long-tweet").slideDown('slow', hideElement(".long-tweet"))
+        $(".long-tweet").slideDown('slow', hideElement(".long-tweet"));
      
         // The form should not be cleared
         // The form should not submit
