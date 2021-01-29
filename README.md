@@ -2,6 +2,9 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
+##Screenshots
+!["Tweeter Desktop"](https://github.com/mikeackison/tweeter/blob/master/docs/Tweeter%20Desktop.png?raw=true)
+!["Tweeter Tablet"](https://github.com/mikeackison/tweeter/blob/master/docs/Tweeter%20Tablet.png?raw=true)
 
 ## Getting Started
 
