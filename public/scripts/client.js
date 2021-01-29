@@ -124,6 +124,7 @@ $(document).ready(function() {
           loadTweets(data);
           // after loading tweets, need to reset/clear the tweet-text.
           $('#tweet-text').val('');
+          $('output.counter').text(140)
 
         }).fail(() =>
           console.log("There was an error getting that info")
